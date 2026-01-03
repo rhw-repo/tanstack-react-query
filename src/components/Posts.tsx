@@ -17,6 +17,7 @@ export const Posts = () => {
   const { data, isLoading, error } = useQuery<Post[]>({
     queryKey: ["posts"],
     queryFn: fetchPosts,
+    staleTime: 10000,
   });
 
   if (isLoading) return <p>Loading...</p>;
