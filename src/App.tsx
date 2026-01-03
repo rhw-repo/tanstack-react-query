@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { Posts } from "./components/Posts";
+import { PostsById } from "./components/PostsById";
 
 /* 
 Source of fake data for examples:
@@ -14,6 +15,7 @@ function App() {
     <>
       <button onClick={() => setIsMounted((prev) => !prev)}>Toggle</button>
       {isMounted && <Posts />}
+      <PostsById id={3} />
     </>
   );
 }
