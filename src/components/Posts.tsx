@@ -1,11 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import type { Post } from "../types";
-/*type Post = {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-};*/
 
 const fetchPosts = async () => {
   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
