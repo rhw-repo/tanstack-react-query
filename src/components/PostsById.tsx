@@ -32,5 +32,5 @@ export const PostsById: React.FC<PostsByIdProps> = ({ id }) => {
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error occured; {error.message}</p>;
 
-  return <>{data?.title}</>;
+  return <section>{data?.title}</section>;
 };
