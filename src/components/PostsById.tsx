@@ -22,6 +22,9 @@ type PostsByIdProps = {
 export const PostsById: React.FC<PostsByIdProps> = ({ id }) => {
   const { data, isLoading, error } = useQuery<Post>({
     queryKey: ["posts", id],
+    // anonymous function calls fetchPosts
+    // fetchPosts(id) alone would mean whatever is returned set to queryFn
+    // correct = assign the function to queryFn not it's return
     queryFn: () => fetchPosts(id),
     staleTime: 10000,
   });

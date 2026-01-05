@@ -4,3 +4,40 @@
   padding: 2rem;
   text-align: center;
 }
+
+section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.main__toggle-wrapper,
+form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.main__toggle-wrapper {
+  flex-direction: column;
+}
+
+form {
+  flex-direction: row;
+  justify-content: start;
+  margin: 1.5rem;
+}
+
+button {
+  margin: 1rem;
+  border: 1px solid white;
+}
+
+input {
+  line-height: 2rem;
+  border: 1px solid white;
+  border-radius: 0.25rem;
+  font-size: 1.25rem;
+}
