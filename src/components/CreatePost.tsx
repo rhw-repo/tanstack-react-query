@@ -1,4 +1,4 @@
-//import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import type { NewPost, Post } from "../types";
 
@@ -14,11 +14,23 @@ export const createPost = async (newPost: NewPost): Promise<Post> => {
 export const CreatePost: React.FC = () => {
   const [title, setTitle] = useState("");
 
-  //const {} = useMutation()
+  const queryClient = useQueryClient();
+
+  // Typical use cases: create / update / delete operations
+  // useMutate allows us to create changes in the state and keep the
+  // server state in sync with the UI
+  const { mutate } = useMutation({
+    mutationFn: createPost,
+    onSuccess: () => {
+      // if add new post, previously executed query is now
+      // out of date -  invalidate it to cause a refetch
+      queryClient.invalidateQueries({ queryKey: ["posts"] });
+    },
+  });
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>): void => {
     e.preventDefault();
-    // mutate
+    mutate({ title, body: "This is a new post" });
   };
 
   return (

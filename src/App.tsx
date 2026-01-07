@@ -1,4 +1,4 @@
-import { useState } from "react";
+//import { useState } from "react";
 import "./App.css";
 import { Posts } from "./components/Posts";
 import { PostsById } from "./components/PostsById";
@@ -11,15 +11,16 @@ Source of fake data for examples:
 */
 
 function App() {
-  const [isMounted, setIsMounted] = useState(false);
+  // const [isMounted, setIsMounted] = useState(false);
   return (
     <main>
       <div className="main__toggle-wrapper">
-        <button onClick={() => setIsMounted((prev) => !prev)}>Toggle</button>
-        {isMounted && <Posts />}
+        {/*} <button onClick={() => setIsMounted((prev) => !prev)}>Toggle</button>
+        {isMounted && <Posts />} */}
       </div>
       <PostsById id={3} />
       <CreatePost />
+      <Posts />
     </main>
   );
 }
